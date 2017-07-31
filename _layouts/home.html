@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="col-md-7 col-sm-12 col-md-offset-5 main-content">
+    <div class="sub-nav">
+        <a href="index.html#" class="select-posts active">Posts</a>
+        <a href="index.html#" class="select-categories">Categories</a>
+    </div>
+  
+  {{ content }}
+
+  <div class="home-page-posts animated fadeIn ">
+    {% for post in site.posts %}
+      <article class="post">
+          <div class="post-preview col-xs-10  no-gutter">
+              {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+              <p>The Grunt ecosystem is huge and it’s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with...
+                  <p class="meta">
+                      <a href="author/dan">{{ post.author | escape }}</a> in <a href='category/coding'>{{ post.category | escape }}</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> {{ post.date | date: date_format }}
+                  </p>
+          </div>
+          <div class=" col-xs-2  no-gutter">
+              <img src="img/dan.jpg" class="user-icon user-1" alt="user-image">
+          </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>
+
+
